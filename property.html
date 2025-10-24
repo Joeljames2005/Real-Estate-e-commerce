@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details - Chennai</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Property Details</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="properties.html">Properties</a></li>
+                <li><a href="wishlist.html">Wishlist</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="property-details">
+            <div id="property-container">
+                <!-- Property details will be loaded dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Real Estate Marketplace - Chennai</p>
+    </footer>
+
+    <script>
+        // Get property ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const propertyId = parseInt(urlParams.get('id'));
+
+        // Property data from script.js (Same as your main page)
+        const properties = [
+    { id: 1, name: "Luxury Beachfront Villa", price: 25000000, location: "ECR, Chennai", image: "assets/villa.jpg", contact: "9876543201" },
+    { id: 2, name: "Modern 3BHK Apartment", price: 8500000, location: "Anna Nagar, Chennai", image: "assets/apartment.jpg", contact: "9876543202" },
+    { id: 3, name: "Cozy Independent House", price: 12000000, location: "Velachery, Chennai", image: "assets/house.jpg", contact: "9876543203" },
+    { id: 4, name: "Elegant Villa", price: 18000000, location: "Adyar, Chennai", image: "assets/villa2.jpg", contact: "9876543204" },
+    { id: 5, name: "Premium 4BHK Apartment", price: 14000000, location: "T. Nagar, Chennai", image: "assets/apartment2.jpg", contact: "9876543205" },
+    { id: 6, name: "Spacious Penthouse", price: 22000000, location: "OMR, Chennai", image: "assets/penthouse.jpg", contact: "9876543206" },
+    { id: 7, name: "Affordable 2BHK Flat", price: 6000000, location: "Tambaram, Chennai", image: "assets/flat.jpg", contact: "9876543207" },
+    { id: 8, name: "Modern Duplex House", price: 20000000, location: "Porur, Chennai", image: "assets/duplex.jpg", contact: "9876543208" },
+    { id: 9, name: "Heritage Bungalow", price: 30000000, location: "Mylapore, Chennai", image: "assets/bungalow.jpg", contact: "9876543209" },
+    { id: 10, name: "Royal Mansion", price: 32000000, location: "Nungambakkam, Chennai", image: "assets/royal_mansion.jpg", contact: "9876543210" },
+    { id: 11, name: "Grand Empire Villa", price: 28000000, location: "Alwarpet, Chennai", image: "assets/grand_empire_villa.jpg", contact: "9876543211" },
+    { id: 12, name: "Beachside Villa", price: 24000000, location: "Neelankarai, Chennai", image: "assets/beachside_villa.jpg", contact: "9876543212" },
+    { id: 13, name: "Skyline Apartment", price: 15000000, location: "Perungudi, Chennai", image: "assets/skyline_apartment.jpg", contact: "9876543213" },
+    { id: 14, name: "Urban Heights", price: 18000000, location: "Sholinganallur, Chennai", image: "assets/urban_heights.jpg", contact: "9876543214" },
+    { id: 15, name: "Green Paradise", price: 21000000, location: "Madhavaram, Chennai", image: "assets/green_paradise.jpg", contact: "9876543215" },
+    { id: 16, name: "Royal Residency", price: 35000000, location: "Kodambakkam, Chennai", image: "assets/royal_residency.jpg", contact: "9876543216" },
+    { id: 17, name: "Sapphire Mansion", price: 38000000, location: "Pallavaram, Chennai", image: "assets/sapphire_mansion.jpg", contact: "9876543217" },
+    { id: 18, name: "Golden Nest", price: 16000000, location: "Thiruvanmiyur, Chennai", image: "assets/golden_nest.jpg", contact: "9876543218" },
+    { id: 19, name: "Lakeview Retreat", price: 26000000, location: "Ambattur, Chennai", image: "assets/lakeview_retreat.jpg", contact: "9876543219" },
+    { id: 20, name: "Elite Haven", price: 30000000, location: "Guindy, Chennai", image: "assets/elite_haven.jpg", contact: "9876543220" }
+];
+
+
+        // Find the property by ID
+        const selectedProperty = properties.find(property => property.id === propertyId);
+
+        // Display property details
+        const propertyContainer = document.getElementById("property-container");
+
+        if (selectedProperty) {
+            propertyContainer.innerHTML = `
+                <img src="${selectedProperty.image}" alt="${selectedProperty.name}" class="property-image">
+                <h2>${selectedProperty.name}</h2>
+                <p><strong>Location:</strong> ${selectedProperty.location}</p>
+                <p><strong>Price:</strong> ₹${selectedProperty.price.toLocaleString()}</p>
+                <a href="index.html" class="back-btn">Go Back</a>
+            `;
+        } else {
+            propertyContainer.innerHTML = `<p>Property not found.</p>`;
+        }
+    </script>
+
+</body>
+
+</html>
+
